@@ -33,6 +33,9 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
+app.post("/auth/register", (req, res) => {
+  const { name, email, password } = req.body;
+
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
 });
