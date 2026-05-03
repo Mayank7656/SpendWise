@@ -1,4 +1,4 @@
-/*require("dotenv").config();
+require("dotenv").config();
 
 const app = require("./app");
 const connectDB = require("./config/db");
@@ -15,27 +15,3 @@ connectDB()
     console.error("Database connection failed:", error.message);
     process.exit(1);
   }); 
-*/
-
-require("dotenv").config();
-
-const express = require("express");
-const cors = require("cors");
-
-const app = express();
-
-app.use(express.json());
-app.use(cors({ origin: "https://spend-wise-nine-liard.vercel.app",credentials: true}));
-
-app.get("/", (req, res) => {
-  res.send("SpendWise API Running");
-});
-
-const PORT = process.env.PORT || 5000;
-
-app.post("/auth/register", (req, res) => {
-  const { name, email, password } = req.body;
-
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
-});
